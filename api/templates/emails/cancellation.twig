@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Annulation d'inscription</title>
+</head>
+<body style="font-family: sans-serif; background-color: #fef0f0; padding: 20px;">
+<div style="max-width: 600px; margin: auto; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #ff4c4c;">Annulation de votre inscription à une JPO</h2>
+
+    <p>Bonjour {{ user.firstname }} {{ user.name }},</p>
+
+    <p>Vous avez annulé votre participation à l'événement suivant :</p>
+
+    <ul>
+        <li><strong>Intitulé :</strong> {{ jpoEvent.description }}</li>
+        <li><strong>Date de début :</strong> {{ jpoEvent.startDatetime|date("d/m/Y H:i") }}</li>
+        <li><strong>Date de fin :</strong> {{ jpoEvent.endDatetime|date("d/m/Y H:i") }}</li>
+    </ul>
+
+    <p>Si cela est une erreur, vous pouvez vous réinscrire depuis le portail JPO.</p>
+
+    <p style="margin-top: 30px;">À bientôt,<br>L'équipe de <strong>La Plateforme_</strong></p>
+</div>
+</body>
+</html>

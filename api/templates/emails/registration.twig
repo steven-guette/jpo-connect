@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation d'inscription</title>
+</head>
+<body style="font-family: sans-serif; background-color: #f5f5f5; padding: 20px;">
+<div style="max-width: 600px; margin: auto; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0062FF;">Confirmation d'inscription à une JPO</h2>
+
+    <p>Bonjour {{ user.firstname }} {{ user.name }},</p>
+
+    <p>Vous êtes désormais inscrit(e) à l'événement suivant :</p>
+
+    <ul>
+        <li><strong>Intitulé :</strong> {{ jpoEvent.description }}</li>
+        <li><strong>Date de début :</strong> {{ jpoEvent.startDatetime|date("d/m/Y H:i") }}</li>
+        <li><strong>Date de fin :</strong> {{ jpoEvent.endDatetime|date("d/m/Y H:i") }}</li>
+        <li><strong>Durée :</strong>
+            {% set d = jpoEvent.duration|split(' ') %}
+            {% if d[0] != '0' %}
+                {{ d[0] ~ ' ' ~ d[1] }}
+            {% endif %}
+            {% if d[2] != '0' %}
+                {{ ' ' ~ d[2] ~ ' ' ~ d[3] }}
+            {% endif %}
+            {% if d[4] != '0' %}
+                {{ ' ' ~ d[4] ~ ' ' ~ d[5] }}
+            {% endif %}
+        </li>
+        {% if jpoEvent.location is not null %}
+            <li>
+                <strong>Adresse :</strong>
+                {{ jpoEvent.location.streetNumber ~ ' ' ~ jpoEvent.location.streetName ~ ', ' ~ jpoEvent.location.zipCode ~ ' ' ~ jpoEvent.location.city }}
+            </li>
+        {% else %}
+            <li><strong>Adresse :</strong> Non renseignée</li>
+        {% endif %}
+    </ul>
+
+    {% if jpoEvent.practicalInfo %}
+        <p><strong>Infos pratiques :</strong><br>{{ jpoEvent.practicalInfo }}</p>
+    {% endif %}
+
+    <p style="margin-top: 30px;">À très bientôt,<br>L'équipe de <strong>La Plateforme_</strong></p>
+</div>
+</body>
+</html>

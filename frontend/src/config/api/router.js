@@ -1,0 +1,1 @@
+export const ROUTER_PATH = 'https://www.whitecat.fr/jpo-connect/api/';
