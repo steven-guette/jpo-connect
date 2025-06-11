@@ -1,7 +1,6 @@
 async function fetchRequest(url, options = {}, format = null) {
     let response;
     try {
-        console.log(`[HttpClient] URL : ${url}`);
         response = await fetch(url, {
             ...options,
             credentials: 'include'

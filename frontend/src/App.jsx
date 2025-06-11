@@ -16,7 +16,7 @@ import LegalNotice from './pages/LegalNotice'
 import CGU from './pages/CGU.jsx'
 import NotFound from './pages/NotFound'
 
-import './App.css'
+import './assets/css/App.css'
 
 function App() {
     const { loading } = useAuth();
@@ -37,12 +37,12 @@ function App() {
                 <Route path="/contact"          element={<Contact />} />
                 <Route path="/about"            element={<About />} />
                 <Route path="/event"            element={<Event />} />
-                <Route path="/event/:eventId"        element={<EventDetail />} />
+                <Route path="/event/:eventId"   element={<EventDetail />} />
                 <Route path="/location"         element={<Location />} />
                 <Route path="/legal-notice"     element={<LegalNotice />} />
                 <Route path="/cgu"              element={<CGU />} />
 
-                <Route  path="/account" element={ <PrivateRoute children={<Account />} /> } />
+                <Route  path="/account"         element={ <PrivateRoute children={<Account />} /> } />
 
                 <Route path="*"                 element={<NotFound />} />
             </Route>

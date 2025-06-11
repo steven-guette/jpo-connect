@@ -11,8 +11,8 @@ import GlobalStyles from './config/GlobalStyles.jsx'
 import theme from './config/mantine/theme'
 import components from './config/mantine/components'
 
-import './mantine.css'
-import './index.css'
+import './assets/css/mantine.css'
+import './assets/css/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>

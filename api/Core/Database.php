@@ -1,8 +1,6 @@
 <?php
 namespace Core;
 
-require __DIR__ . '/../config/bootstrap.php';
-
 use PDO;
 use PDOStatement;
 use Exception;
@@ -44,7 +42,6 @@ abstract class Database {
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (Exception $err) {
-            echo $_ENV['DB_HOST'];
             throw new Exception("Une erreur est survenue lors de la connexion à la base de donnée.\nErreur: {$err->getMessage()}");
         }
     }

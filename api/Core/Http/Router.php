@@ -2,7 +2,6 @@
 namespace Core\Http;
 
 use Exception;
-use Symfony\Component\VarDumper\VarDumper;
 
 final class Router {
     private string $requestMethod;
@@ -26,6 +25,8 @@ final class Router {
     public function dispatch(): void {
         if ($this->isSpecialController()) {
             switch ($this->getControllerName()) {
+                // api/users/1
+                // api/auth/login
                 case 'AuthController':
                     $controllerMethod = $this->getUriComponents(1) ?? null;
                     if (!method_exists($this->getController(), $controllerMethod)) {

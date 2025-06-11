@@ -8,10 +8,10 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         const fetchUser = async () => {
             try {
                 const userData = await AuthService.me();
-                console.log('[AuthContext] userData:', userData)
                 setUser(userData.success ? userData.data : null);
             } catch (err) {
                 setUser(null);
